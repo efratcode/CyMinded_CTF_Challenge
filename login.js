@@ -1,28 +1,30 @@
-// md5_password_check.js
+const storedHash = "435c642fdf30accf3471b2c4e6d5fe09";
 
-// Simulate a hardcoded MD5 hash for the password "Crypto_Failure"
-const storedHash = "cd433cbef0f7207b0fc6db9d9f57e849"; // MD5 of "Crypto_Failure"
-
-// Function to hash input using MD5 (you'll need an MD5 library, such as CryptoJS)
+// Function to hash input using MD5 (requires CryptoJS library)
 function md5(input) {
-    // This requires you to include an MD5 library in your HTML
     return CryptoJS.MD5(input).toString();
 }
 
+
 // Function to handle login
 function handleLogin() {
+    const userNameInput = document.getElementById("username").value;
     const passwordInput = document.getElementById("password").value;
-
-    // Hash the user input and compare it to the stored hash
-    const hashedInput = md5(passwordInput);
-
-    if (hashedInput === storedHash) {
+    
+    const hashedInput = md2(passwordInput); // Hash the Base64-encoded input
+    console.log(hashedInput);
+    const base64Encoded = btoa(hashedInput); // Convert to Base64
+    console.log(base64Encoded);
+    
+    if (hashedInput == storedHash && userNameInput == "CarlLaemmle") {
         alert("Login successful!");
     } else {
         alert("Login failed: Incorrect password.");
     }
 }
 
-// Attach the login function to the button
-const loginButton = document.querySelector(".login-button");
-loginButton.addEventListener("click", handleLogin);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loginButton = document.querySelector('.login-button');
+    loginButton.addEventListener("click", handleLogin);
+});

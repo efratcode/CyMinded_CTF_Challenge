@@ -14,7 +14,12 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 250px;
+
+    display: flex;               /* Make the container a flexbox */
+    flex-direction: column;      /* Arrange items vertically */
+    justify-content: center;     /* Center the items vertically */
+    align-items: center;         /* Center the items horizontally */
 }
 
 .login-container h2 {
@@ -22,6 +27,12 @@ body {
     font-size: 24px;
     color: #333333;
     text-align: center;
+}
+
+.login-container img{
+    width: 100px; /* Adjust the size of the image */
+    height: 100px; /* Adjust the size of the image */
+    margin-bottom: 10px; /* Space between the image and the title */
 }
 
 .form-group {
