@@ -9,13 +9,59 @@ body {
     height: 100vh;
 }
 
+/*pop-up window*/
+#welcomeModal {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 150px; /* Increased padding for a larger interior */
+    width: 500px; /* Made the modal wider */
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  /* Heading in the modal */
+  #welcomeModal h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  /* Paragraphs in the modal */
+  #welcomeModal p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Close button styling */
+  #welcomeModal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #welcomeModal button:hover {
+    background-color: #0056b3;
+  }
+
+  /*login container*/
 .login-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 250px;
-
     display: flex;               /* Make the container a flexbox */
     flex-direction: column;      /* Arrange items vertically */
     justify-content: center;     /* Center the items vertically */

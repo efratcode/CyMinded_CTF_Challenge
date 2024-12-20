@@ -1,30 +1,49 @@
-const storedHash = "435c642fdf30accf3471b2c4e6d5fe09";
+const storedHash = "0d3cb7adcb1464cddbafeba4c4389c11"; //MD5(Base64("Recha67"))
 
 // Function to hash input using MD5 (requires CryptoJS library)
 function md5(input) {
     return CryptoJS.MD5(input).toString();
 }
 
+//pop up window event
+window.onload = () => {
+    const modal = document.getElementById("welcomeModal");
+    const closeButton = document.getElementById("closeModal");
+    
+    // Show the modal when the page loads
+    modal.style.display = "block";
+
+    // Close the modal when the button is clicked
+    closeButton.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+};
 
 // Function to handle login
 function handleLogin() {
     const userNameInput = document.getElementById("username").value;
     const passwordInput = document.getElementById("password").value;
     
-    const hashedInput = md2(passwordInput); // Hash the Base64-encoded input
+    const hashedInput = md5(passwordInput); // Hash the Base64-encoded input
     console.log(hashedInput);
     const base64Encoded = btoa(hashedInput); // Convert to Base64
     console.log(base64Encoded);
     
-    if (hashedInput == storedHash && userNameInput == "CarlLaemmle") {
+    
+    if(hashedInput == storedHash && userNameInput != "Laemmle")
+        alert("Login failed: bad psername");
+    else if (hashedInput != storedHash && userNameInput == "Laemmle")
+        alert("Login failed: bad password")
+    else if(hashedInput == storedHash && userNameInput == "Laemmle")
         alert("Login successful!");
-    } else {
-        alert("Login failed: Incorrect password.");
-    }
+    else
+        alert("Login failed.");
 }
 
-
+//button 'login' click event
 document.addEventListener('DOMContentLoaded', function () {
     const loginButton = document.querySelector('.login-button');
     loginButton.addEventListener("click", handleLogin);
 });
+
+
