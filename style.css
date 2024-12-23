@@ -7,120 +7,174 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    background-image: url('img/universal_background_1.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
 }
 
-/*pop-up window*/
+/* Pop-up window */
 #welcomeModal {
     display: none; /* Initially hidden */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 150px; /* Increased padding for a larger interior */
-    width: 500px; /* Made the modal wider */
-    text-align: center;
+    background: white; /* Clean white background */
+    border-radius: 12px; /* Smooth rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 175px 40px; /* Balanced padding for content */
+    width: 400px; /* Responsive width */
+    /*max-width: 400px; /* Restrict maximum width */
+    text-align: center; /* Center the content */
     z-index: 1000;
-  }
-  
-  /* Heading in the modal */
-  #welcomeModal h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  /* Paragraphs in the modal */
-  #welcomeModal p {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #555;
-  }
-  
-  /* Close button styling */
-  #welcomeModal button {
+}
+
+/* Heading in the modal */
+#welcomeModal h1 {
+    font-size: 28px; /* Larger heading */
+    margin-bottom: 40px; /* Space below heading */
+    color: #2d3436; /* Darker gray for contrast */
+    font-weight: bold; /* Bold font */
+}
+
+/* Paragraphs in the modal */
+#welcomeModal p {
+    margin: 10px 0;
+    font-size: 16px; /* Slightly larger text for readability */
+    color: #636e72; /* Subtle gray for paragraph text */
+    line-height: 1.5; /* Increase line spacing for better readability */
+}
+
+/* Close button styling */
+#welcomeModal button {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #007BFF;
-    color: white;
+    padding: 12px 20px; /* Larger button for a modern look */
+    font-size: 16px; /* Increased font size for readability */
+    background-color: #0984e3; /* Vibrant blue button */
+    color: white; /* White text for contrast */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Smooth rounded corners */
     cursor: pointer;
-  }
-  
-  #welcomeModal button:hover {
-    background-color: #0056b3;
-  }
+    transition: background 0.3s ease; /* Smooth hover effect */
+}
 
-  /*login container*/
+#welcomeModal button:hover {
+    background-color: #74b9ff; /* Lighter blue on hover */
+}
+
+#welcomeModal button:active {
+    background-color: #40739e; /* Darker blue on click */
+}
+
+/* Overlay for the modal */
+#modalOverlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    z-index: 999; /* Behind the modal */
+}
+
+
+/*login container*/
 .login-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    display: flex;               /* Make the container a flexbox */
-    flex-direction: column;      /* Arrange items vertically */
-    justify-content: center;     /* Center the items vertically */
-    align-items: center;         /* Center the items horizontally */
+    background: white; /* Clean white background */
+    padding: 30px 40px; /* Ample spacing */
+    border-radius: 12px; /* Smooth rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    width: 100%; 
+    max-width: 400px; /* Restrict the width */
+    text-align: center; /* Center-align all text */
 }
 
+/* Logo/image */
+.login-container img {
+    width: 180px; /* Adjusted size for balance */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space below the image */
+}
+
+/* Heading */
 .login-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333333;
-    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #2d3436; /* Darker gray for contrast */
 }
 
-.login-container img{
-    width: 100px; /* Adjust the size of the image */
-    height: 100px; /* Adjust the size of the image */
-    margin-bottom: 10px; /* Space between the image and the title */
-}
-
+/* Form group styling */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* More spacing between inputs */
+    text-align: left; /* Align labels to the left */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 3px;
     font-size: 14px;
-    color: #555555;
+    font-weight: bold;
+    margin-bottom: 8px; /* Spacing below label */
+    color: #636e72; /* Subtle gray for labels */
 }
 
+/* Inputs */
 .form-group input {
-    width: 100%; 
-    max-width: 277px; 
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 12px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dfe6e9; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    box-sizing: border-box; /* Prevent overflow */
+    transition: all 0.3s ease; /* Smooth focus effect */
 }
 
+/* Focused input */
 .form-group input:focus {
-    border-color: #007BFF;
-    outline: none;
+    border-color: #0984e3; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(9, 132, 227, 0.5); /* Glow effect */
+    outline: none; /* Remove default outline */
 }
 
+/* Login button */
 .login-button {
     width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
+    padding: 12px;
+    background: #0984e3; /* Vibrant blue button */
     border: none;
-    border-radius: 4px;
+    border-radius: 8px; /* Smooth rounded corners */
     color: white;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s ease; /* Smooth hover effect */
 }
 
 .login-button:hover {
-    background-color: #0056b3;
+    background: #74b9ff; /* Lighter blue on hover */
 }
 
 .login-button:active {
-    background-color: #004494;
+    background: #40739e; /* Darker blue on click */
+}
+
+/* Subtle footer link */
+.login-container .footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #636e72; /* Subtle gray */
+}
+
+.login-container .footer a {
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-container .footer a:hover {
+    color: #74b9ff; /* Lighter blue on hover */
 }

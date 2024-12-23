@@ -17,7 +17,14 @@ window.onload = () => {
     closeButton.addEventListener("click", () => {
       modal.style.display = "none";
     });
+
+    /*
+    They say
+    the true legacy of company begins with the founder
+    */
 };
+
+
 
 // Function to handle login
 function handleLogin() {
