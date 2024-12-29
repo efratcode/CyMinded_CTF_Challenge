@@ -1,0 +1,136 @@
+/* General App Container */
+.app-container {
+    display: flex;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+    background-color: #f9fbfd; /* Light gray background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: #1f5fbf; /* Blue heading */
+  }
+  /* Sidebar (MenuBar) */
+  .menu-bar {
+    width: 260px;
+    background:#639ffa; /* Modern blue gradient */
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; /* Smooth shrinking */
+  }
+  
+  .menu-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+  }
+  
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px); /* Subtle hover animation */
+  }
+  
+  .menu-item.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Highlight active menu */
+    font-weight: bold;
+  }
+  
+  /* Main Dashboard Content */
+  .dashboard-container {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    background-color: #f9fbfd; /* Match background */
+  }
+  
+  /* Card Design */
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1f5fbf; /* Blue heading */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Button Styling */
+  .btn {
+    background-color: #639ffa; /* Modern blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #1c74cc; /* Darker blue */
+    transform: translateY(-2px); /* Subtle animation */
+  }
+  
+  /* List Styling */
+  .list-group-item {
+    background-color: #f8faff; /* Light blue background */
+    border: none;
+    margin-bottom: 8px;
+    padding: 12px 18px;
+    border-radius: 8px;
+  }
+  
+  .list-group-item:hover {
+    background-color: #e2edff; /* Slightly darker hover color */
+    color: #1f5fbf;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 850px) {
+    .menu-bar {
+      display: none; /* Hide sidebar on smaller screens */
+    }
+  
+    .dashboard-container {
+      padding: 15px;
+    }
+
+}
+  
