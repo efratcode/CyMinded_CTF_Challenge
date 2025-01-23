@@ -29,7 +29,10 @@ window.onload = () => {
 //
 
 // Function to handle login
-function handleLogin() {
+function handleLogin(event) {
+    //prevent the form from being submitting 
+    event.preventDefault();
+    console.log("handle_login");
     const userNameInput = document.getElementById("username").value;
     const passwordInput = document.getElementById("password").value;
     
@@ -40,16 +43,18 @@ function handleLogin() {
         alert("Login failed: bad username");
     else if (hashedInput != storedHash && userNameInput == "Laemmle")
         alert("Login failed: bad password")
-    else if(hashedInput == storedHash && userNameInput == "Laemmle")
-        alert("Login successful!");
-    else
+    else if(hashedInput == storedHash && userNameInput == "Laemmle") {
+        alert("CTF{Know_Th3_F0und3r!}");
+    }else
         alert("Login failed.");
 }
 
 //button 'login' click event
 document.addEventListener('DOMContentLoaded', function () {
     const loginButton = document.querySelector('.login-button');
-    loginButton.addEventListener("click", handleLogin);
+    loginButton.addEventListener("click", function(event){
+        handleLogin(event);
+    });
 });
 
 

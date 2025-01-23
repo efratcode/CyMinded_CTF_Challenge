@@ -1,6 +1,6 @@
 //seting up a basic Express application and define the structure for our backend.
 
-// Import necessary modules
+//imports
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -11,20 +11,13 @@ const PORT = 5000;
 // Middleware to parse incoming JSON requests
 app.use(bodyParser.json());
 
-// Import routes
-const authRoutes = require('./routes/authRoutes');
-const usersRoutes = require('./routes/usersRoutes');
-
-// Use routes in the app
-app.use('/api/auth', authRoutes); // Routes for authentication
-app.use('/api/users', usersRoutes); // Routes for users management
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the CTF backend!');
-  });
-  
+  res.send('Welcome to the CTF backend!');
+});
+
 app.get("/api",(req,res) => {
-    res.json({"parks": ["Hollywood","Orlando","Japan", "Singapore", "Beijing"] })
+  res.json({"parks": ["Hollywood","Orlando","Japan", "Singapore", "Beijing"] })
 })
 
 // Start the server
