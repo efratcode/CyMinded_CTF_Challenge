@@ -1,8 +1,13 @@
 // Mock user database
+
+//users data
 const users = [
-  { userId: 1, userName:'Laemmmle', firstName: 'Carl', lastName:'Laemmle', email: 'Laemmmle@universalStu.com', role: 'founder', password: 'founderfounder' },
-  { userId: 2, userName:'CaldEthan', firstName: 'Ethan', lastName:'Caldwell', email: 'CaldEthan@universalStu.com', role: 'employee', password: 'gatTr42@' },
-  { userId: 3, userName:'BennSophia', firstName: 'Sophia', lastName:'Bennett', email: 'BennSophia@universalStu.com', role: 'admin', password: 'hr6(Bde%' },
+  { userId: 1, userName:'Laemmmle', firstName: 'Carl', lastName:'Laemmle', email: 'Laemmmle@universalStu.com', role: 'founder', password: 'founderfounder', flag: 'CTF{example_flag1}'  },
+  { userId: 2, userName:'CaldEthan', firstName: 'Ethan', lastName:'Caldwell', email: 'CaldEthan@universalStu.com', role: 'employee', password: 'gatTr42@', flag: 'CTF{jdfhvbh_dfb_3}'  },
+  { userId: 3, userName:'BennSophia', firstName: 'Sophia', lastName:'Bennett', email: 'BennSophia@universalStu.com', role: 'admin', password: 'hr6(Bde%', flag: 'CTF{sbgh_drhfvg}'  },
 ];
 
-module.exports = {users};
+// FLAG data
+const FLAG = 'CTF{example_flag}';
+
+module.exports = {users, FLAG};
