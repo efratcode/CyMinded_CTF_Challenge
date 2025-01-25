@@ -4,6 +4,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { users, FLAG } = require('./database'); // Import mock database
+const { findUserByFlag } = require('./helper');
 const cors = require('cors');
 
 
@@ -13,7 +14,10 @@ const PORT = 5000;
 
 // Middleware to parse incoming JSON requests
 app.use(bodyParser.json());
-app.use(cors());
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+}));
 
 
 app.get('/', (req, res) => {
@@ -32,13 +36,18 @@ app.post('/api/validate-flag', (req, res) => {
     return res.status(400).json({ valid: false, message: 'Flag is required.' });
   }
 
-  // Validate the FLAG
-  if (flag === FLAG) {
-    return res.json({ valid: true, message: 'Correct flag!' });
+  //get the user and validate existance
+  const user = findUserByFlag(flag);
+  if (!user) {
+    return res.status(401).json({ valid: false, message: 'Invalid flag. Try again.' });
   }
-
-  // Respond with an error if the FLAG is incorrect
-  res.status(401).json({ valid: false, message: 'Invalid flag. Try again.' });
+  
+  res.json({ 
+      valid: true, 
+      message: 'Correct flag!',
+      userRole: user.role,
+  });
+  
 });
 
 // Start the server

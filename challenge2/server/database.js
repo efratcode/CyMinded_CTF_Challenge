@@ -7,7 +7,5 @@ const users = [
   { userId: 3, userName:'BennSophia', firstName: 'Sophia', lastName:'Bennett', email: 'BennSophia@universalStu.com', role: 'admin', password: 'hr6(Bde%', flag: 'CTF{sbgh_drhfvg}'  },
 ];
 
-// FLAG data
-const FLAG = 'CTF{example_flag}';
 
-module.exports = {users, FLAG};
+module.exports = {users};

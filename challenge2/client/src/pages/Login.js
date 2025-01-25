@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect,useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../components/Login/login.css';
 const Login = () => {
@@ -7,6 +6,12 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(''); // Store error messages for invalid flags
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // For navigation
+
+  useEffect(() => {
+    // Clear session on Login page load
+    localStorage.removeItem("userRole"); // Remove userRole from localStorage when login page is accessed
+    console.log("Session cleared. Redirecting to login page.");
+  }, []);
   
   //handle login
   const handleLogin = async () => {
@@ -30,7 +35,22 @@ const Login = () => {
 
       // If the server confirms the FLAG is valid
       if (response.ok && result.valid) {
-        navigate('/dashboard'); // Redirect to the dashboard
+
+        // Check the user's role from the backend response
+        const userRole = result.userRole;
+        // Store session data
+        localStorage.setItem('userRole', userRole); // Save userRole
+
+        if (userRole === 'founder') {
+          // Navigate to the special founder dashboard
+          navigate('/dashboard');
+        } else if (userRole === 'admin' || userRole === 'employee') {
+          // Navigate to the regular dashboard
+          navigate('/home');
+        }
+        else{
+          setErrorMessage('An error occurred. Please try again.');
+        }
       } else {
         setErrorMessage(result.message || 'Invalid flag. Please try again.');
       }
@@ -41,6 +61,7 @@ const Login = () => {
       setLoading(false);
     }
   };
+
 
   
   return (
