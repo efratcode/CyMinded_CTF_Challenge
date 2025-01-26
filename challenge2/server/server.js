@@ -3,7 +3,7 @@
 //imports
 const express = require('express');
 const bodyParser = require('body-parser');
-const { users, FLAG } = require('./database'); // Import mock database
+const { users} = require('./database'); // Import mock database
 const { findUserByFlag } = require('./helper');
 const cors = require('cors');
 
@@ -42,11 +42,25 @@ app.post('/api/validate-flag', (req, res) => {
     return res.status(401).json({ valid: false, message: 'Invalid flag. Try again.' });
   }
   
-  res.json({ 
-      valid: true, 
-      message: 'Correct flag!',
-      userRole: user.role,
-  });
+  // Validate the user's role and determine redirect route
+  const userRole = user.role; 
+  const roleToRouteMap = {
+    admin: '/admin',
+    founder: '/dashboard',
+    employee: '/home'
+  };
+
+  const redirectRoute = roleToRouteMap[userRole];
+
+  if (!redirectRoute) {
+    return res.status(401).json({ valid: false, message: 'Unauthorized role.' });
+  }
+      
+  return res.json({ 
+    valid: true, 
+    userRole, 
+    redirectRoute });
+  
   
 });
 

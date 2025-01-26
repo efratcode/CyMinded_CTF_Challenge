@@ -33,24 +33,14 @@ const Login = () => {
 
       const result = await response.json();
 
-      // If the server confirms the FLAG is valid
       if (response.ok && result.valid) {
-
-        // Check the user's role from the backend response
         const userRole = result.userRole;
-        // Store session data
-        localStorage.setItem('userRole', userRole); // Save userRole
-
-        if (userRole === 'founder') {
-          // Navigate to the special founder dashboard
-          navigate('/dashboard');
-        } else if (userRole === 'admin' || userRole === 'employee') {
-          // Navigate to the regular dashboard
-          navigate('/home');
-        }
-        else{
-          setErrorMessage('An error occurred. Please try again.');
-        }
+        localStorage.setItem('userRole', userRole); // Save role
+        console.log(`Logged in as: ${userRole}`); // Log role to console
+        
+        // Navigate to the route provided by the backend
+        navigate(result.redirectRoute);
+      
       } else {
         setErrorMessage(result.message || 'Invalid flag. Please try again.');
       }
