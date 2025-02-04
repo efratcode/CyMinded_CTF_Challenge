@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-image: url('../UniversalImage.jpg'); /* Path to your image */
     background-color: #ebf8ff; /* Light blue background */
     margin-bottom: 1.5rem; 
   }

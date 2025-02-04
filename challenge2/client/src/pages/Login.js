@@ -59,7 +59,7 @@ const Login = () => {
       {/* Centered box for the login card */}
       <div className="login-card">
         {/* Title section */}
-        <h1 className="login-title">Welcome to the second challege:)</h1>
+        <h1 className="login-title">Welcome to the second challenge:)</h1>
         {/* Input container */}
         <div className="input-container">
           <input
