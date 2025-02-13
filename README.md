@@ -15,8 +15,10 @@ Node.js, React, JavaScript, Linux, Bash, HTML, CSS.
 
 ![image](https://github.com/user-attachments/assets/3c47e24f-1206-4c57-bdeb-eda39cc2ad48)
    
-   (from the presentation)
+(second challenge flow)
+![image](https://github.com/user-attachments/assets/cf2dd8fc-241e-41a8-8bde-5508c7ed6a2d)
 
- ![image](https://github.com/user-attachments/assets/c164190a-e68f-45c9-9c5e-4f21ccd0d9cd)
- (from the second challenge's demo)
+(from the second challenge's demo)
+![image](https://github.com/user-attachments/assets/c164190a-e68f-45c9-9c5e-4f21ccd0d9cd)
+ 
 
